@@ -58,32 +58,31 @@ class CustomDataset(Dataset):
         tar_path = os.path.join(img_dir, "dataset.tar.gz")
         if not os.path.exists(img_dir):
             os.makedirs(img_dir, exist_ok=True)
-            print(f"Downloading dataset from {dataset_url}...")
+            print(f"dang tai dataset {dataset_url}...")
             CustomDataset.download_url(dataset_url, tar_path)
-            print("Extracting dataset...")
+            print("Extracting dataset")
             with tarfile.open(tar_path, 'r:gz') as tar:
                 tar.extractall(path=img_dir)
             os.remove(tar_path)
-            print("Dataset downloaded and extracted successfully.")
+            print("hoan thanh")
         else:
-            print("Dataset already exists.")
+            print("da ton tai dataset")
 
 dataset_url = 'http://dlib.net/files/data/ibug_300W_large_face_landmark_dataset.tar.gz'
 img_dir = "D:\\ibug_300W_large_face_landmark_dataset\\ibug_300W_large_face_landmark_dataset\\ibug"
 
 
 dataset = CustomDataset(img_dir)
-image, label = dataset[14]
+image, label = dataset[0]
 
 keypoints = [
  
-    (212.716603, 499.771793),
-    (230.232816, 566.290071),
-    (244.420524, 630.237666),
-    (266.645871, 684.558825),
-    (293.977749, 739.462179),
-    (322.014215, 791.263494),
-    (350.130203, 841.112109)
+    (336.820955, 240.864510),
+    (334.238298, 260.922709),
+    (335.266918, 283.697151),
+    (339.307573, 302.270092),
+    (344.609474, 321.426167),
+    (350.930559, 340.781503)
 
 ]
 
